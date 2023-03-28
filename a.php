@@ -10,6 +10,6 @@
     <?php
         include 'navbar.php';
         ?>
-    <h1>HOla soy a!</h1>
+    <h1>HOla soy a! </h1>
 </body>
 </html>
