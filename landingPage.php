@@ -10,7 +10,7 @@
 
 <body>
     <?php
-    // Datos de conexión
+    // Configuración para base de datos
     $servername = "localhost";
     $username = "sa";
     $password = "olivio1212";
