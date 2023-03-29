@@ -1,9 +1,9 @@
 <?php
 // Configuración de la base de datos
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'mi_base_de_datos');
+$DB_HOST='containers-us-west-58.railway.app:5989';
+$DB_USER='root';
+$DB_PASS='Rkw1Y8mZwvglJn8Dma2L';
+$DB_NAME='railway';
 
 // Configuración de otros parámetros del sitio web
 define('SITE_NAME', 'Mi sitio web');

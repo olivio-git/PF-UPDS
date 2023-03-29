@@ -2,6 +2,7 @@
 // Cargar el archivo de configuración y la biblioteca de funciones
 require_once('config.php');
 require_once('./lib/functions.php');
+require_once('./lib/db.php');
 
 // Obtener la URL de la solicitud actual
 $request_uri = $_SERVER['REQUEST_URI'];
