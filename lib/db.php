@@ -10,5 +10,5 @@
     if (!$conn) {
         die("Conexión fallida: " . mysqli_connect_error());
     }
-    echo "Conexión establecida. Versión del servidor: " . mysqli_get_server_info($conn);    
+    $db="db";
 ?>
