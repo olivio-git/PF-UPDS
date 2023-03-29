@@ -7,7 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <?php require_once('navbar.php'); ?>
-    <h1>Hola mundo soy Home!</h1>
+    <h1>Hola contact!</h1>
 </body>
 </html>
