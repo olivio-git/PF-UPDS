@@ -1,5 +1,5 @@
 <?php
-require_once('./lib/getAllPeliculas.php');
+require_once('./lib/peliculasService.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,11 @@ require_once('./lib/getAllPeliculas.php');
       require_once('navbar.php');
       ?>
     </div>
-    <div class="col-12">
+    <?php
+    require_once ("formPelicula.php") 
+
+    ?>
+    <!-- <div class="col-12">
       <div class="card-deck">
         <?php foreach ($resul as $pelicula) : ?>
           <div class="card">
@@ -31,7 +35,7 @@ require_once('./lib/getAllPeliculas.php');
           </div>
         <?php endforeach ?>
       </div>
-    </div>
+    </div> -->
     <div class="row">
         <div class="col-12">
           <?php
