@@ -20,6 +20,9 @@ switch ($request_uri) {
     case '/notfound':
         require_once('controllers/404.php');
         break;
+    case '/index.php':
+        require_once('controllers/home.php');
+        break;
     default:
     require_once('controllers/home.php');
     break;
