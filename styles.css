@@ -97,3 +97,6 @@ footer{
 .error{
     color: rgb(229, 47, 53);
 }
+.form-left .col-12 {
+    text-align: center;
+}
