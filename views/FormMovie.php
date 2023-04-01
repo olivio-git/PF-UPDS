@@ -8,22 +8,22 @@
         $error[$key] = 'Error: El campo ' . $key . ' no puede estar vacio';
     }
  }
+ $pelicula=new Pelicula();
  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $pelicula=new Pelicula();
-    $pelicula->name=$_POST['name'];
-    $pelicula->portada=$_POST['portada'];
-    $pelicula->poster=$_POST['poster'];
-    $pelicula->description=$_POST['description'];
-    $pelicula->duration=$_POST['duration'];
-    $pelicula->date=$_POST['date'];
-    $pelicula->active=$_POST['active'];
-    $pelicula->language=$_POST['language'];
-    $pelicula->classification=$_POST['classification'];
-    $pelicula->principal=$_POST['principal'];
-    $pelicula->rating=$_POST['rating'];
-    $pelicula->format=$_POST['format'];
-    $pelicula->stock=$_POST['stock'];
-    $pelicula->price=$_POST['price'];
+    $pelicula->name=$_POST['name']?:'';
+    $pelicula->portada=$_POST['portada']?:'';
+    $pelicula->poster=$_POST['poster']?:'';
+    $pelicula->description=$_POST['description']?:'';
+    $pelicula->duration=$_POST['duration']?:'';
+    $pelicula->date=$_POST['date']?:'';
+    $pelicula->active=$_POST['active']?:'';
+    $pelicula->language=$_POST['language']?:'';
+    $pelicula->classification=$_POST['classification']?:'';
+    $pelicula->principal=$_POST['principal']?:'';
+    $pelicula->rating=$_POST['rating']?:'';
+    $pelicula->format=$_POST['format']?:'';
+    $pelicula->stock=$_POST['stock']?:'';
+    $pelicula->price=$_POST['price']?:'';
  }
 ?>
 
