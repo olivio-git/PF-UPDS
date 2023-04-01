@@ -18,5 +18,82 @@
 [class*="col-"] {
     float: left;
     padding: 15px;
-    border: 1px solid red;
-  }
+    /* border: 1px solid red; */
+}
+nav{
+    min-height: 10vh;
+}
+footer{
+    min-height: 10vh;
+}
+.page{
+    min-height: 80vh;
+    background-color: black;
+    color: white;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.justify-content-center {
+  -webkit-box-pack: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+}
+.form-container{
+    padding: 0;
+    color: white;
+    box-shadow: 0 0 30px rgb(255, 255, 255);
+    background-color: rgb(30, 30, 30);
+    margin-bottom: 15vh;
+}
+.form-right{
+    background-color: black;
+    height: 100%;
+}
+.col-6 input, select, .col-4 input, select{
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgb(241, 24, 33);
+    background: none;
+    color: white;
+    padding: .7em;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.form-left{
+    padding: 0;
+}
+.form-title{
+    padding-top: 6vh;
+    padding-bottom: 2vh;
+    text-align: center;
+}
+.form-title span{
+    color: rgb(241, 24, 33);
+}
+.label-form{
+    font-size: 20px;
+}
+.btn{
+    border: none;
+    margin: 10px;
+    padding: .5em;
+    font-size: 20px;
+}
+.btn-form{
+    background-color: rgb(241, 24, 33);
+    border-radius: 20px 5px 20px 5px;
+    color: white;
+    transition: transform 0.9s ease-in-out;
+    width: 50%;
+    
+}
+.btn-form:hover{
+    background-color: rgb(229, 47, 53);
+    transform: scale(1.05);
+
+}
+.error{
+    color: rgb(229, 47, 53);
+}
