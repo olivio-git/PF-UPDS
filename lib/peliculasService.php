@@ -11,6 +11,16 @@
         }
         return $resul;
     }
+    function getPelicula($id){
+        global $conn;
+        $sql = "select * from Pelicula WHERE id=$id;";
+        $resultado = mysqli_query($conn, $sql);
+        $resul = [];
+        while ($fila = mysqli_fetch_assoc($resultado)) {
+            $resul[] = $fila;
+        }
+        return $resul;
+    }
     function postPelicula(Pelicula $p){
         global $conn;
         $sql = "INSERT INTO Pelicula (name, portada, poster, description, duration, active, date, language, classification, 
@@ -32,6 +42,15 @@
             try {
                 $resultado = mysqli_query($conn, $sql);
                 if($resultado){
+                    $p->id=mysqli_insert_id($conn);
+                    foreach ($p->genres as $idGenre) {
+                        $sqlG=" INSERT INTO PeliculaGenre (idPelicula, idGenre) VALUES ($p->id, $idGenre);";
+                        mysqli_query($conn, $sqlG);
+                    }
+                    foreach ($p->actores as $idActor) {
+                        $sqlA=" INSERT INTO PeliculaActor (idPelicula, idActor) VALUES ($p->id, $idActor);";
+                        mysqli_query($conn, $sqlA);
+                    }
                     return "Created successfully";
                 }
             } catch (\Throwable $th) {
@@ -63,5 +82,25 @@
         } catch (\Throwable $th) {
             return $th;
         }
+    }
+    function getAllPeliculaActor($idPelicula){
+        global $conn;
+        $sql = "select * from PeliculaActor WHERE idPelicula=$idPelicula;";
+        $resultado = mysqli_query($conn, $sql);
+        $resul = [];
+        while ($fila = mysqli_fetch_assoc($resultado)) {
+            $resul[] = $fila;
+        }
+        return $resul;
+    }
+    function getAllPeliculaGenre($idPelicula){
+        global $conn;
+        $sql = "select * from PeliculaGenre WHERE idPelicula=$idPelicula;";
+        $resultado = mysqli_query($conn, $sql);
+        $resul = [];
+        while ($fila = mysqli_fetch_assoc($resultado)) {
+            $resul[] = $fila;
+        }
+        return $resul;
     }
 ?>

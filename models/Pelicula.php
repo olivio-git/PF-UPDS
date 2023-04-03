@@ -15,5 +15,7 @@
         public $format;
         public $stock;
         public $price;
+        public $genres;
+        public $actores;
     }
 ?>
