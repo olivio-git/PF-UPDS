@@ -6,34 +6,35 @@ require_once 'lib/genreService.php';
 
 
 <div class="page">
+  <form method="GET">
   <div class="col-12 container-filter">
     <div class="selec">
       <label for="sort">Sort</label>
-      <select class="select-sort" name="sort" id="sort">
-        <option default value="A-Z">A-Z</option>
-        <option value="Z-A">Z-A</option>
+      <select class="select-sort" name="orden_nombre" id="sort">
+      <option default value="ALL">ALL</option>
+        <option value="ASC">A-Z</option>
+        <option value="DESC">Z-A</option>
       </select>
     </div>
     <div class="selc">
       <label for="price">Precios</label>
-      <select class="select-sort" name="sort" id="sort">
-        <option default value="as">Asendente</option>
-        <option value="des">Desendente</option>
+      <select class="select-sort" name="orden_precio" id="sort">
+        <option default value="ASC">Asendente</option>
+        <option value="DESC">Desendente</option>
       </select>
     </div>
-    <div class="selc">
-      <label for="price">Generos</label>
-      <select class="select-sort" name="sort" id="sort">
-        <?php foreach (getAllGenres() as $genre) : ?>
-          <option value="<?= $genre['id'] ?>"><?= $genre['name'] ?></option>
-        <?php endforeach ?>
-      </select>
-    </div>
+     
   </div>
+  <button type="submit" class="btn btn-primary">
+    Filtrar
+  </button>
+  </form>
   <h1>Todas las peliculas</h1>
   <div class="row justify-content-center pb-3 pt-3">
       <div class="col-9 container-cards">
-            <?php foreach (getAllPeliculas() as $movie):?>
+            <?php $orden_nombre = $_GET['orden_nombre'] ?? "";
+               $orden_precio = $_GET['orden_precio'] ?? "";
+              foreach (getAllPeliculasFilter($orden_nombre, $orden_precio) as $movie):?>
             <div class="card">
               <div class="button-container">
                 <div class="row justify-content-center">
@@ -49,7 +50,7 @@ require_once 'lib/genreService.php';
               </div>
             </div>
             <?php endforeach?>
-      </div>
-  </div>
-
 </div>
+</div>
+</div>
+
