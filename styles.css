@@ -526,6 +526,10 @@ footer{
     opacity: 1;
     z-index: 1;
     color:aquamarine;
+    transform: scale(1.5);
+  }
+  .button-container i{
+    transition: transform 0.4s ease-in-out;
   }
   .button-container {
     color: white;
@@ -594,4 +598,52 @@ footer{
 }
 .body-car h1,h2{
     font-family: monospace;
+}
+ /* estilos pagina detalles */
+ .page .backdrop{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    box-shadow: inset 0 0 200px rgba(0, 0, 0);
+    position: absolute;
+    opacity: 0.3;
+    width: 100%;
+    height: 80vh;
+}
+.backdrop img{
+    width: 100%;
+    max-height: 120vh;
+}
+.star{
+    color: yellow;
+    font-size: 30px;
+}
+.shop{
+    color: rgb(241, 24, 33);
+    font-size: 30px;
+}
+.shop:hover{
+    color: aqua;
+}
+.detail{
+    position: relative;
+    z-index: 1;
+    background: transparent;
+}
+.detail-image{
+    margin-top: 5vh;
+}
+.detailContent{
+    color: white;
+    font-weight: bold;
+    margin-top: 10vh;
+}
+.detail-body{
+    margin-top: 5vh;
+}
+.lbl{
+    color: rgb(241, 24, 33);
+}
+.lbl label{
+    color: white;
 }

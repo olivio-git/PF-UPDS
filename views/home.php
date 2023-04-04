@@ -56,7 +56,7 @@ require_once 'lib/formatService.php';
             <div class="button-container">
               <div class="row justify-content-center">
                 <div class="col-11"><i class="fa-solid fa-cart-shopping"></i></div>
-                <div class="col-11"><i class="fa-solid fa-circle-info"></i></div>
+                <div class="col-11"><a href="/detallePelicula?id=<?=$movie['id']?>"><i class="fa-solid fa-circle-info" ></a></i></div>
                 <div class="col-11"><i class="fa-solid fa-share-nodes"></i></div>
               </div>
             </div>
