@@ -1,6 +1,6 @@
 <?php
 require_once('./lib/peliculasService.php');
-require_once 'lib/genreServiceadawdawdawdaw.php';
+require_once 'lib/genreService.php';
 
 ?>
 
@@ -24,11 +24,8 @@ require_once 'lib/genreServiceadawdawdawdaw.php';
     <div class="selc">
       <label for="price">Generos</label>
       <select class="select-sort" name="sort" id="sort">
-        <?php foreach (getAllGenres() as $format) : ?>
-          <option value="<?= $format['id'] ?>" <?php if ($pelicula->format == $format['id']) {
-              echo 'selected';
-          }
-          ?>><?= $format['name'] ?></option>
+        <?php foreach (getAllGenres() as $genre) : ?>
+          <option value="<?= $genre['id'] ?>"><?= $genre['name'] ?></option>
         <?php endforeach ?>
       </select>
     </div>
