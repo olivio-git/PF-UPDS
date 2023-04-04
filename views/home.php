@@ -1,6 +1,6 @@
 <?php
 require_once('./lib/peliculasService.php');
-require_once 'lib/genreService.php';
+require_once 'lib/genreServiceadawdawdawdaw.php';
 
 ?>
 
