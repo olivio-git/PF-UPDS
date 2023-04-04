@@ -11,6 +11,25 @@
         }
         return $resul;
     }
+    function getAllPeliculasFilter($orden_nombre, $orden_precio) {
+        global $conn;
+        $sql = "SELECT * FROM Pelicula";
+        
+        if ($orden_nombre != "ALL") {
+                $sql .= " ORDER BY name $orden_nombre";
+        }
+      
+        if ($orden_nombre  != "") {
+            $sql .= " ORDER BY price $orden_precio";
+        }
+  
+        $resultado = mysqli_query($conn, $sql);
+        $resul = [];
+        while ($fila = mysqli_fetch_assoc($resultado)) {
+            $resul[] = $fila;
+        }
+        return $resul;
+      }
     function getPelicula($id){
         global $conn;
         $sql = "select * from Pelicula WHERE id=$id;";
