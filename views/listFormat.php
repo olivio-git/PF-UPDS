@@ -7,13 +7,16 @@
 ?>
 
 <div class="page">
-    <div class="row ">
-        <div class="col-6 ms-5">
+    <div class="row justify-content-center">
+        <?php
+            include_once 'slideBar.php';
+        ?>
+        <div class="col-8">
+        <div class="row ">
+        <div class="col-6">
             <form action="/formFormat" method="get"><button type="submit" class="btn-g btn-form">Agregar</button></form>
         </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-11">
+        </div>
         <table class="table table-dark table-hover">
             <thead>
                 <tr>
