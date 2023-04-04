@@ -14,6 +14,7 @@
  $pelicula=new Pelicula();
  if(isset($_GET['id'])){
     $paramID=$_GET['id'];
+    $pelicula->id=$paramID;
     foreach (getPelicula($paramID)[0] as $key => $value) {
         $pelicula->$key=$value;
     }
@@ -31,6 +32,7 @@
     if(!isset($_REQUEST['genre'])){
         $error['genre']='Error: Debe seleccionar al menos una opcion';
     }
+    $pelicula->id=$_POST['btn'];
     $pelicula->name=$_POST['name']?:'';
     $pelicula->portada=$_POST['portada']?:'';
     $pelicula->poster=$_POST['poster']?:'';
@@ -48,14 +50,30 @@
     $pelicula->genres=isset($_POST['genre'])?$_POST['genre']:[];
     $pelicula->actores=isset($_POST['actor'])?$_POST['actor']:[];
     if(count($error)<=0){
-        postPelicula($pelicula);
+        if(isset($_GET['accion'])){
+            updatePelicula($pelicula);
+        }
+        else{
+            postPelicula($pelicula);
+        }
     }
  }
 ?>
 <div class="page">
-    <h1 class="form-title">AGREGAR <span>PELICULA</span></h1>
+    <h1 class="form-title"><?php
+        if(isset($_GET['accion'])){
+            echo 'MODIFICAR';
+        }
+        else{
+            echo'AGREGAR';
+        }
+    ?><span> PELICULA</span></h1>
         <div class="row justify-content-center">
-                <form action="/FormMovie" method="post" class="form-container col-11">
+                <form action="/FormMovie<?php
+                    if(isset($_GET['accion'])){
+                        echo '?accion=Modificar';
+                    }
+                ?>" method="post" class="form-container col-11">
                     <div class="col-7 form-left">
                     <div class="col-6">
                         <div>
@@ -283,7 +301,7 @@
                         </div>
                     </div>
                     <div class="col-12 ">
-                        <button type="submit" class="btn-g btn-form" id="liveAlertBtn">Guardar</button>
+                        <button type="submit" class="btn-g btn-form" name="btn" value="<?=$pelicula->id?>">Guardar</button>
                     </div>
                     </div>
                     <div class="col-5 form-right">

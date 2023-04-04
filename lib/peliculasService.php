@@ -75,8 +75,20 @@
         duration='$p->duration', active=$p->active, date='$p->date', language='$p->language', classification='$p->classification', 
         principal=$p->principal, format=$p->format, rating=$p->rating, stock=$p->stock, price=$p->price WHERE id=$p->id;";
         try {
+            $SqldeleteA="DELETE FROM PeliculaActor WHERE idPelicula=$p->id;";
+            $SqldeleteG="DELETE FROM PeliculaGenre WHERE idPelicula=$p->id;";
+            mysqli_query($conn, $SqldeleteA);
+            mysqli_query($conn, $SqldeleteG);
             $resultado = mysqli_query($conn, $sql);
             if($resultado){
+                foreach ($p->genres as $idGenre) {
+                    $sqlG=" INSERT INTO PeliculaGenre (idPelicula, idGenre) VALUES ($p->id, $idGenre);";
+                    mysqli_query($conn, $sqlG);
+                }
+                foreach ($p->actores as $idActor) {
+                    $sqlA=" INSERT INTO PeliculaActor (idPelicula, idActor) VALUES ($p->id, $idActor);";
+                    mysqli_query($conn, $sqlA);
+                }
                 return "Updated successfully";
             }
         } catch (\Throwable $th) {

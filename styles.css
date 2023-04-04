@@ -62,6 +62,16 @@ footer{
     width: 100%;
     margin-bottom: 15px;
 }
+.colum-inputs input, select, .col-4 input, select{
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgb(241, 24, 33);
+    background: none;
+    color: white;
+    padding: .7em;
+    width: 100%;
+    margin-bottom: 15px;
+}
 .form-left{
     padding: 0;
 }
@@ -411,7 +421,7 @@ footer{
   content: "";
   height: 3px;
   width: 0;
-  background: #009688;
+  background: rgb(241, 24, 33);
   position: absolute;
   left: 0;
   bottom: -10px;
@@ -421,7 +431,13 @@ footer{
 .navbar ul li:hover::after {
   width: 100%;
 }
-
+/* estilos slidebar */
+.slide-bar{
+    margin-right: 10px;
+}
+.slide-bar ul{
+    
+}
 /* .select-item{
     display: flex;
     align-items: center;

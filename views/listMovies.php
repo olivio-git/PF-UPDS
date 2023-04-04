@@ -1,8 +1,17 @@
 <?php
     require_once 'lib/peliculasService.php';
+    if(isset($_GET['id'])){
+        $id=$_GET['id'];
+        deletePelicula($id);
+    }
 ?>
 
 <div class="page">
+    <div class="row ">
+        <div class="col-6 ms-5">
+            <form action="/formMovie" method="get"><button type="submit" class="btn-g btn-form">Agregar</button></form>
+        </div>
+    </div>
     <div class="row justify-content-center">
         <div class="col-11">
         <table class="table table-dark table-hover">
@@ -41,8 +50,8 @@
                 <td><?=$pelicula['price']?></td>
                 <td><img src="<?=$pelicula['poster']?>" alt="" width="80px" height="110px"></td>
                 <td class="options"><i class="fa-solid fa-eye"></i></td>
-                <td class="options"><a href="/formMovie?id=<?=$pelicula['id']?>"><i class="fa-solid fa-marker"></i></a></td>
-                <td class="options"><i class="fa-solid fa-trash"></i></td>
+                <td class="options"><a href="/formMovie?id=<?=$pelicula['id']?>&&accion=Modificar"><i class="fa-solid fa-marker"></i></a></td>
+                <td class="options"><a href="/listMovies?id=<?=$pelicula['id']?>"><i class="fa-solid fa-trash"></i></a></td>
                 </tr>
                 <?php endforeach ?>
             </tbody>
