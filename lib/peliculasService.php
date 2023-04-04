@@ -11,24 +11,44 @@
         }
         return $resul;
     }
-    function getAllPeliculasFilter($orden_nombre, $orden_precio) {
+    function getAllPeliculasFilter($orden_nombre, $orden_precio,$orden_formato) {
         global $conn;
         $sql = "SELECT * FROM Pelicula";
         
         if ($orden_nombre != "ALL") {
                 $sql .= " ORDER BY name $orden_nombre";
+                $resultado = mysqli_query($conn, $sql);
+                $resul = [];
+                while ($fila = mysqli_fetch_assoc($resultado)) {
+                $resul[] = $fila;
+                }
+                return $resul;
         }
       
-        if ($orden_nombre  != "") {
+        if ($orden_precio  != "ALL") {
             $sql .= " ORDER BY price $orden_precio";
+            $resultado = mysqli_query($conn, $sql);
+            $resul = [];
+            while ($fila = mysqli_fetch_assoc($resultado)) {
+                $resul[] = $fila;
+            }
+            return $resul;
         }
-  
+        if($orden_formato!="ALL"){
+            $sql .= " WHERE format=$orden_formato";
+            $resultado = mysqli_query($conn, $sql);
+            $resul = [];
+            while ($fila = mysqli_fetch_assoc($resultado)) {
+                $resul[] = $fila;
+            }
+            return $resul;
+        }
         $resultado = mysqli_query($conn, $sql);
-        $resul = [];
-        while ($fila = mysqli_fetch_assoc($resultado)) {
-            $resul[] = $fila;
-        }
-        return $resul;
+            $resul = [];
+            while ($fila = mysqli_fetch_assoc($resultado)) {
+                $resul[] = $fila;
+            }
+            return $resul;
       }
     function getPelicula($id){
         global $conn;
