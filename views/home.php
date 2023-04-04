@@ -31,15 +31,25 @@ require_once 'lib/genreService.php';
     </div>
   </div>
   <h1>Todas las peliculas</h1>
-  <div class="col-12 container-card">
-    <?php foreach (getAllPeliculas() as $pelicula) : ?>
-      <div class="card-pel">
-        <img src="<?= $pelicula['poster'] ?>" class="card-img-top" alt="<?= $pelicula['name'] ?>">
-        <div class="card-body">
-          <h5 class="card-title"><?= $pelicula['name'] ?></h5>
-          <p class="card-text"><?= $pelicula['description'] ?></p>
-        </div>
+  <div class="row justify-content-center pb-3 pt-3">
+      <div class="col-9 container-cards">
+            <?php foreach (getAllPeliculas() as $movie):?>
+            <div class="card">
+              <div class="button-container">
+                <div class="row justify-content-center">
+                  <div class="col-11"><i class="fa-solid fa-cart-shopping"></i></div>
+                  <div class="col-11"><i class="fa-solid fa-circle-info" ></i></div>
+                  <div class="col-11"><i class="fa-solid fa-share-nodes"></i></div>
+                </div>
+              </div>
+              <img src="<?=$movie['poster']?>" class="card-img-top" alt="..." height="300vh">
+              <div class="card-body">
+                <h6 class="card-title text-center"><?=$movie['name']?></h6>
+                <p class="card-text text-center price">$<?=$movie['price']?></p>
+              </div>
+            </div>
+            <?php endforeach?>
       </div>
-    <?php endforeach ?>
   </div>
+
 </div>
