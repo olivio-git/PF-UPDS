@@ -30,11 +30,9 @@ for ($i=1; $i < strlen($request_uri); $i++) {
 
 <body>
   <div class="row">
-    <div class="col-12">
       <?php
       require_once('views/navbar.php');
       ?>
-    </div>
   </div>
     <?php
     
