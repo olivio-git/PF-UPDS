@@ -7,7 +7,7 @@
  require_once 'lib/peliculasService.php';
  $error=[];
  foreach ($_REQUEST as $key => $value) {
-    if ($_REQUEST[$key] == '') {
+    if ($_REQUEST[$key] == ''&&$key!='btn') {
         $error[$key] = 'Error: El campo ' . $key . ' no puede estar vacio';
     }
  }
@@ -32,7 +32,12 @@
     if(!isset($_REQUEST['genre'])){
         $error['genre']='Error: Debe seleccionar al menos una opcion';
     }
-    $pelicula->id=$_POST['btn'];
+    if($_POST['btn']!=''){
+        $pelicula->id=$_POST['btn'];
+    }
+    else{
+        $pelicula->id=0;
+    }
     $pelicula->name=$_POST['name']?:'';
     $pelicula->portada=$_POST['portada']?:'';
     $pelicula->poster=$_POST['poster']?:'';
@@ -69,7 +74,7 @@
         }
     ?><span> PELICULA</span></h1>
         <div class="row justify-content-center">
-                <form action="/FormMovie<?php
+                <form action="/formMovie<?php
                     if(isset($_GET['accion'])){
                         echo '?accion=Modificar';
                     }

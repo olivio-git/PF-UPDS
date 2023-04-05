@@ -25,10 +25,10 @@
         <div class="row justify-content-center pb-3 ">
             <div class="col-6 detailContent">
                 <h1 class="text-center text-uppercase fw-bold font-monospace pb-3"><?=$pelicula->name;?></h1>
-                <div class="row">
+                <!-- <div class="row">
                   <div class="col text-center pb-3 border-end  border-light"><i class="fa-solid fa-cart-shopping shop" (click)="postCar(Movie)"></i></div>
                   <div class="col text-center pb-3 border-end border-start border-light" *ngFor="let g of genres">{{g.name}}</div>
-                </div>
+                </div> -->
                 <div class="row mt-5">
                   <div class="col text-center pb-3 "><?=$pelicula->duration?> min</div>
                   <div class="col text-center pb-3 "><?=$pelicula->format?></div>

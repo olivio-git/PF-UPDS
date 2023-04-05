@@ -3,7 +3,7 @@
  require_once 'lib/directorService.php';
  $error=[];
  foreach ($_REQUEST as $key => $value) {
-    if ($_REQUEST[$key] == '') {
+    if ($_REQUEST[$key] == ''&&$key!='btn') {
         $error[$key] = 'Error: El campo ' . $key . ' no puede estar vacio';
     }
  }
@@ -16,6 +16,12 @@
     }
  }
  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if($_POST['btn']!=''){
+        $persona->id=$_POST['btn'];
+    }
+    else{
+        $persona->id=0;
+    }
     $persona->id=$_POST['btn'];
     $persona->name=$_POST['name']?:'';
     $persona->image=$_POST['image']?:'';
