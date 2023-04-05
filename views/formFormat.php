@@ -3,7 +3,7 @@
  require_once 'lib/formatService.php';
  $error=[];
  foreach ($_REQUEST as $key => $value) {
-    if ($_REQUEST[$key] == '') {
+    if ($_REQUEST[$key] == ''&&$key!='btn') {
         $error[$key] = 'Error: El campo ' . $key . ' no puede estar vacio';
     }
  }
@@ -16,6 +16,12 @@
     }
  }
  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if($_POST['btn']!=''){
+        $format->id=$_POST['btn'];
+    }
+    else{
+        $format->id=0;
+    }
     $format->id=$_POST['btn'];
     $format->name=$_POST['name']?:'';
     if(count($error)<=0){

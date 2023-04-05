@@ -3,7 +3,7 @@
  require_once 'lib/genreService.php';
  $error=[];
  foreach ($_REQUEST as $key => $value) {
-    if ($_REQUEST[$key] == '') {
+    if ($_REQUEST[$key] == ''&&$key!='btn') {
         $error[$key] = 'Error: El campo ' . $key . ' no puede estar vacio';
     }
  }
@@ -19,6 +19,12 @@
     $genre->id=$_POST['btn'];
     $genre->name=$_POST['name']?:'';
     $genre->active=$_POST['active']?:'';
+    if($_POST['btn']!=''){
+        $genre->id=$_POST['btn'];
+    }
+    else{
+        $genre->id=0;
+    }
     if(count($error)<=0){
         if(isset($_GET['accion'])){
             updateGenre($genre);
